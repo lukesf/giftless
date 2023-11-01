@@ -59,7 +59,7 @@ class LocalStorage(StreamingStorage, MultipartStorage, ViewProvider):
         super().register_views(app)
 
     def _get_path(self, prefix: str, oid: str) -> str:
-        return os.path.join(self.path, prefix, oid)
+        return os.path.join(self.path, prefix, oid[0:2], oid[2:4], oid)
 
     @staticmethod
     def _create_path(path):
